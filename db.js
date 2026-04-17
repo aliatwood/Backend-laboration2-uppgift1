@@ -1,5 +1,7 @@
+// Importerar mysql2 för databasuppkoppling
 const mysql = require("mysql2");
 
+// Skapar en anslutning till databasen med miljövariabler från .env
 const db = mysql.createConnection({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
@@ -7,6 +9,7 @@ const db = mysql.createConnection({
     database: process.env.DB_DATABASE
 });
 
+// Ansluter till databasen och skriver ut ett meddelande
 db.connect((err) =>{
     if (err){
         console.error("Databasfel: " + err);
@@ -15,4 +18,5 @@ db.connect((err) =>{
     console.log("Ansluten till databasen!");
 });
 
+// Exporterar databasuppkopplingen
 module.exports = db;
