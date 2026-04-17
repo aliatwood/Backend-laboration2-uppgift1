@@ -16,6 +16,19 @@ router.get("/", (req, res) =>{
     });
 });
 
+// GET - Hämtar en specifik arbetserfarenhet baserat på id
+router.get("/:id", (req, res) =>{
+    const id = req.params.id;
+
+    db.query("SELECT * FROM workexperience WHERE id=?", [id], (err, rows) =>{
+        if (err){
+            res.status(500).json({ error: "Databasfel: " + err});
+            return;
+        }
+        res.json(rows);
+    });
+});
+
 // POST där en ny arbetserfarenhet skapas
 router.post("/", (req, res) =>{
     const {companyName, jobTitle, location, startDate, endDate, description} = req.body;
