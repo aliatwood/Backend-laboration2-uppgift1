@@ -1,22 +1,38 @@
 # CV API
 
-Ett REST-baserat API för att hantera arbetserfarenheter, byggt med Node.js, Express och MariaDB.
+Detta repository innehåller kod för ett REST API byggt med Express och MariaDB. APIet är byggt för att hantera arbetserfarenheter. Grundläggande funktionalitet för CRUD (Create, Read, Update, Delete) är implementerad.
 
-## Installation
+## Installation, databas
 
-1. Klona repot
-2. Kör `npm install`
-3. Skapa en `.env`-fil med dina databasuppgifter
-4. Starta servern med `node server.js`
+APIet använder en MariaDB-databas. Klona ner källkodsfilerna, kör kommando `npm install` för att installera nödvändiga npm-paket.
 
-## Endpoints
+Databasen innehåller följande tabell:
 
-| Metod  | URI                          | Beskrivning                  |
-|--------|------------------------------|------------------------------|
-| GET    | /api/workexperience          | Hämtar alla arbetserfarenheter|
-| POST   | /api/workexperience          | Skapar en ny arbetserfarenhet |
-| PUT    | /api/workexperience/:id      | Uppdaterar en arbetserfarenhet|
-| DELETE | /api/workexperience/:id      | Raderar en arbetserfarenhet   |
+| Tabell-namn    | Fält                                                                 |
+|----------------|----------------------------------------------------------------------|
+| workexperience | id (int), companyName (varchar(30)), jobTitle (varchar(25)), location (varchar(30)), startDate (date), endDate (date), description (varchar(200)) |
 
-## Ett kurs-objekt returneras/skickas som JSON med följande struktur:
-{"id":1,"companyName":"Sfmovie","jobTitle":"cashier","location":"Linkoping","startDate":"2015-01-04T23:00:00.000Z","endDate":"2025-02-04T23:00:00.000Z","description":"Took on customers"}
+## Användning
+
+Nedan finns beskrivet hur man når APIet:
+
+| Metod  | Ändpunkt                    | Beskrivning                            |
+|--------|-----------------------------|----------------------------------------|
+| GET    | /api/workexperience         | Hämtar alla arbetserfarenheter         |
+| GET    | /api/workexperience/:id     | Hämtar en specifik arbetserfarenhet    |
+| POST   | /api/workexperience         | Skapar en ny arbetserfarenhet          |
+| PUT    | /api/workexperience/:id     | Uppdaterar en befintlig arbetserfarenhet|
+| DELETE | /api/workexperience/:id     | Raderar en arbetserfarenhet            |
+
+Ett objekt returneras/skickas som JSON med följande struktur:
+
+```json
+{
+    "companyName": "Sfmovie",
+    "jobTitle": "cashier",
+    "location": "Linkoping",
+    "startDate": "2015-01-05",
+    "endDate": "2025-02-05",
+    "description": "Took on customers"
+}
+```
