@@ -1,0 +1,3 @@
+Mina basrelationer:
+
+workexperience(id(pk), companyName, jobTitle, location, startDate, endDate, description)
