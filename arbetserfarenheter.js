@@ -44,7 +44,6 @@ router.post("/", (req, res) =>{
         [companyName, jobTitle, location, startDate, endDate, description],
         (err, result) =>{
             if (err) {
-                console.error("SQL fel:", err);
                 res.status(500).json({ error: "Databasfel: " + err });
                 return;
             }
