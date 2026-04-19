@@ -34,7 +34,7 @@ router.post("/", (req, res) =>{
     const {companyName, jobTitle, location, startDate, endDate, description} = req.body;
 
     // Validering, kontrollerar att alla fält är fyllda.
-    if (!companyName || !jobTitle || !location || !startDate || !endDate || !description) {
+    if (!companyName || !jobTitle || !location || !startDate || !description) {
         res.status(400).json({ error: "Alla fält måste fyllas i!" });
         return;
     }
