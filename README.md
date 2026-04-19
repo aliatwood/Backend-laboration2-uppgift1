@@ -36,3 +36,7 @@ Ett objekt returneras/skickas som JSON med följande struktur:
     "description": "Took on customers"
 }
 ```
+
+## Länk
+En liveversion av APIet finns tillgänglig på följande URL:
+https://backend-laboration2-uppgift1-production.up.railway.app/api/workexperience
